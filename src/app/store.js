@@ -6,10 +6,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import storage from 'redux-persist/lib/storage';
 import thunk from "redux-thunk";
 import persistStore from 'redux-persist/es/persistStore';
+import Auth from '../components/Auth/reducers/Auth';
+import ListUser from '../components/UserManagement/reducers/ListUser';
 
 
 const rootReducer = combineReducers({
-    
+    Auth: Auth,
+    ListUser: ListUser
 });
 
 const persistConfig = {

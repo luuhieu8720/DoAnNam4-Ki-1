@@ -4,6 +4,7 @@ import "react-html5-camera-photo/build/css/index.css";
 import { Box, Button, Keyboard, Image, TextInput } from "grommet";
 import { FormClose, Camera, Gallery, Close } from "grommet-icons";
 import CameraModal from "./CameraModal";
+import Resizer from "react-image-file-resizer";
 
 function RichTextInput({ onSubmit, ...rest }) {
 
@@ -28,23 +29,30 @@ function RichTextInput({ onSubmit, ...rest }) {
 		[image, allowEnter, onSubmit]
 	);
 
-	const onFilesAdded = event => {
-		let file = event.target.files[0];
+	const resizeFile = (file) =>
+		new Promise((resolve) => {
+			Resizer.imageFileResizer(
+				file,
+				500,
+				400,
+				"JPEG",
+				100,
+				0,
+				(uri) => {
+					resolve(uri);
+				},
+				"base64"
+			);
+		});
 
-		const reader = new FileReader();
-		reader.onload = e => {
-			const img = e.target.result;
-			console.log(img)
-			setImage(img);
+	const onFilesAdded = async event => {
 
-			// img.onload = () => {
-			// 	console.log(img);
-			// };
-		};
-		reader.onabort = () => console.log("file reading was aborted");
-		reader.onerror = () => console.log("file reading has failed");
-		if (file) {
-			reader.readAsDataURL(file);
+		try {
+			const file = event.target.files[0];
+			const image = await resizeFile(file);
+			setImage(image);
+		} catch (err) {
+			console.log(err);
 		}
 	};
 

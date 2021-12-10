@@ -1,10 +1,14 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { HEIGHT, WIDTH } from '../../constants/Webcam';
 import './Webcam.css';
 
 function Webcam(props) {
 
     const [playing, setPlaying] = useState(false);
+
+    const token = useSelector(state => state.Auth ? state.Auth.token : "");
 
     // useEffect(() => clearPhoto(), [])
 
@@ -49,9 +53,22 @@ function Webcam(props) {
             canvas.height = HEIGHT;
             context.drawImage(video, 0, 0, WIDTH, HEIGHT);
 
-            let data = canvas.toDataURL('image/png');
+            let data = canvas.toDataURL('image/png').split(',')[1];
             console.log(data)
             //   photo.setAttribute('src', data);
+            axios.post(`https://pbl6-backend.herokuapp.com/api/ml/predict`, {
+                base64String: data
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then((res) => {
+                    console.log(res)
+                })
+                .catch(err => {
+
+                })
         } else {
             clearPhoto();
         }

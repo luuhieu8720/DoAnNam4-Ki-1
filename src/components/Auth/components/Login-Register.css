@@ -1,0 +1,129 @@
+.container-form-Register {
+    width: 100%;
+    max-width: 500px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-form-Login {
+    width: 100%;
+    max-width: 430px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auth-form {
+    background: #fff;
+    border: rgba(235, 233, 231, 0.644) 1px solid;
+    border-radius: 7px;
+}
+
+.auth-form label {
+    color: #504e4e;
+}
+
+.auth-form .text {
+    background: #fff;
+    border: #ddd 1px solid;
+    border-radius: 7px;
+    height: 38px;
+    width: 100%;
+    margin-top: 5px;
+    padding: 0 15px;
+    color: #555555;
+    box-shadow: 0 0 4px #ddd;
+    transition-duration: 300ms;
+}
+
+.auth-form .text:focus {
+    box-shadow: 0px 0px 8px #ddd;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    outline: none;
+}
+
+.auth-form .password {
+    background: #fff;
+    border: #ddd 1px solid;
+    border-radius: 7px;
+    height: 38px;
+    width: 100%;
+    margin-top: 5px;
+    padding: 0 15px;
+    color: #555555;
+    box-shadow: 0 0 4px #ddd;
+    transition-duration: 300ms;
+}
+
+.auth-form .password:focus {
+    box-shadow: 0px 0px 8px #ddd;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    outline: none;
+}
+
+.other-login {
+    text-align: center;
+    border-bottom: 2px solid rgb(231, 229, 229);
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+
+.other-login span {
+    color: gray;
+    background: #fff;
+    padding: 0 7px;
+}
+
+.auth-form .btn-verify {
+    background: rgb(48, 196, 223);
+    border: #ddd 1px solid;
+    border-radius: 7px;
+    height: 38px;
+    margin-top: 5px;
+    padding: 0 20px;
+    color: #fafafa;
+    box-shadow: 0 0 4px #ddd;
+    transition-duration: 300ms;
+    font-weight: 500;
+    opacity: 0.8;
+}
+.auth-form .btn-verify:hover {
+    opacity: 1;
+}
+
+.btn-login {
+    width: 100%;
+    border-radius: 5px;
+    z-index: 1;
+    font-size: 18px;
+    font-family: inherit;
+    color: white;
+    padding: 0.5em 1em;
+    outline: none;
+    border: none;
+    background-color: rgba(79, 70, 229);
+}
+
+.btn-login:hover {
+    cursor: pointer;
+    animation: jelly 0.8s;
+}
+
+@keyframes jelly {
+    0%,
+    100% {
+        transform: scale(1, 1);
+    }
+    25% {
+        transform: scale(0.9, 1.1);
+    }
+    50% {
+        transform: scale(1.1, 0.9);
+    }
+    75% {
+        transform: scale(0.95, 1.05);
+    }
+}
