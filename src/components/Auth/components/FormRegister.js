@@ -33,7 +33,7 @@ function FormRegister(props) {
     }
 
     return (
-        <div className="grid grid-cols-1 bg-gray-50 pt-20" >
+        <div className="grid grid-cols-1 bg-gray-50 pt-20 h-screen" >
             <div className="mt-4 container-form-Register">
                 <h1 className="text-3xl text-center font-bold mt-2">Register Account</h1>
                 <form className="mt-4 p-8 auth-form shadow-md" onSubmit={handleSubmit(submitFormRegister)}>
@@ -72,7 +72,7 @@ function FormRegister(props) {
 
 
                     <div className="mt-4">
-                        <label htmlFor="email" className="font-medium">BirthDay</label>
+                        <label htmlFor="email" className="font-medium">Birthday</label>
                         <input
                             id="birthDay"
                             className="focus:ring-indigo-500 focus:border focus:border-indigo-500 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none"
@@ -115,7 +115,7 @@ function FormRegister(props) {
                     <button className="mt-4 text-white bg-indigo-600 text-center w-full py-2 border border-gray-300 rounded-md"
                         type="submit"
                     >
-                        Register
+                        Sign Up
                     </button>
                 </form>
             </div>

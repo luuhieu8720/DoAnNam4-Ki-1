@@ -52,7 +52,7 @@ function FormLogin(props) {
 
     return (
 
-        <div className="grid grid-cols-1 bg-gray-50 form-login pt-32">
+        <div className="grid grid-cols-1 bg-gray-50 form-login pt-32 h-screen">
             <div className="mt-4 container-form-Login">
                 <h1 className="text-3xl text-center font-bold mt-2">Sign in to your account</h1>
                 <p className="text-center font-xs text-gray-400 tracking-tighter">Sign in to continue to App.</p>

@@ -14,7 +14,7 @@ export const FetchList = createAsyncThunk('fetchList', async (params, thunkAPI) 
 })
 
 const listUser = createSlice({
-    name: 'login',
+    name: 'listUser',
     initialState: [],
     reducers: {
         fetchListUser: (state, action) => {

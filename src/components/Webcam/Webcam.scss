@@ -1,0 +1,93 @@
+.webcam-container {
+    background-image: url(https://images.unsplash.com/photo-1538137524007-21e48fa42f3f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ac9fa0975bd2ebad7afd906c5a3a15ab&auto=format&fit=crop&w=1834&q=80);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: calc(100vh - 88px);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.modal {
+    height: calc(100vh - 88px);
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.4s;
+    margin-top: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .webcam {
+        // margin-top: 100px;
+        display: grid;
+        grid-template-columns: 600px 500px;
+    }
+    
+    .app__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 6px outset #ddd;
+        /* padding: 0px 10px; */
+        // width: 500px;
+        height: 400px;
+    }
+    
+    .app__input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .app__input button {
+        margin-top: 1rem;
+        padding: 0.4rem 1.2rem;
+        font-weight: 600;
+        color: white;
+        background: rgba(34, 161, 247, 0.808);
+        border-radius: 6px;
+        transition: background-color 0.3s ease-out 0s;
+    }
+    
+    .app__input button:hover {
+        color: #fff;
+        background: #b1c7f3;
+    }
+}
+
+.wrapper {
+    /*This part is important for centering*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .typing-demo {
+    width: 13ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-size: 1.2em;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
+
+
+

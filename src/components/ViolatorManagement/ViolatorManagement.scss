@@ -1,0 +1,63 @@
+.violator-management-container {
+    background-image: url(https://images.unsplash.com/photo-1538137524007-21e48fa42f3f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ac9fa0975bd2ebad7afd906c5a3a15ab&auto=format&fit=crop&w=1834&q=80);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: calc(100vh - 88px);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.modal {
+    height: calc(100vh - 88px);
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.4s;
+    margin-top: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.card {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 15px 15px 30px;
+}
+
+.card-thumb {
+    width: 390px;
+    height: 350px;
+    margin: 0 auto 25px;
+}
+
+.card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.hotSearch {
+
+    width: 1350px;    
+    overflow: hidden;
+
+    .hotSearch__ {
+        transition: all 0.5s;
+    }
+
+}
+
+
+
+

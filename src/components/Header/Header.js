@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
 import './Header.scss';
 import faceMask from '../../image/face-mask.png';
-import fmd from '../../image/fmd.png';
-import arrow from '../../image/arrow.svg';
 import { Link } from 'react-router-dom';
 import { onLogout } from '../Auth/reducers/Auth';
 
@@ -22,11 +20,20 @@ function Header(props) {
 
     const [dropdownUser, setDropdownUser] = useState(false);
 
-    // const accessToken = useSelector(auth => auth.Auth.accessToken);
+    const [changeClass, setChangeClass] = useState(false);
+
+    const ScrollChangeClass = () => {
+        window.scrollY > 10 ? setChangeClass(true) : setChangeClass(false);
+    }
+
+    useEffect(() => {
+        // adding the event when scroll change background
+        window.addEventListener("scroll", ScrollChangeClass)
+    })
 
     return (
-        <div className={`header ${location === "/" && "home"}`} >
-            <div className={`header__container ${location === "/" ? "" : "bg-white shadow"}`}>
+        <div className="header" >
+            <div className={`header__container ${changeClass ?"bg-white shadow" : ""} ${location !== "/" && "bg-white shadow"}`}>
                 <nav className="navigation">
                     <Link to="/" className="logo">
                         <img
@@ -65,11 +72,11 @@ function Header(props) {
                                         </div>
                                     </div>
 
-                                    {dropdownUser && <div className="z-10 origin-top-right absolute right-0 mt-12 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                    {dropdownUser && <div className="z-10 origin-top-right absolute right-0 mt-12 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                                         <div className="divide-y divide-fuchsia-300" role="none">
                                             <Link
                                                 to="/account-setting"
-                                                className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out"
+                                                className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out text-base"
                                                 onClick={() => setDropdownUser(false)}
                                             >
                                                 <i className="fas fa-user-cog w-1/5"></i>
@@ -79,15 +86,26 @@ function Header(props) {
                                                 role !== 1 &&
                                                 <Link
                                                     to="/admin/user-management"
-                                                    className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out"
+                                                    className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 text-base ease-in-out"
                                                     onClick={() => setDropdownUser(false)}
                                                 >
                                                     <i className="fas fa-users-cog w-1/5"></i>
                                                     <span>User management</span>
                                                 </Link>
                                             }
+                                             {
+                                                role !== 1 &&
+                                                <Link
+                                                    to="/admin/violator-management"
+                                                    className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 text-base ease-in-out"
+                                                    onClick={() => setDropdownUser(false)}
+                                                >
+                                                    <i className="fas fa-images w-1/5"></i>
+                                                    <span>Violator Management</span>
+                                                </Link>
+                                            }
                                             <button
-                                                className="text-gray-700 w-full rounded-b-md text-left px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out"
+                                                className="text-gray-700 w-full rounded-b-md text-left px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out text-base"
                                                 onClick={() => {
                                                     dispatch(onLogout());
                                                     setDropdownUser(false);
@@ -104,7 +122,7 @@ function Header(props) {
                 </nav>
             </div>
 
-            {location === "/" &&
+            {/* {location === "/" &&
                 <section className="header-content">
                     <div className="header-content__container wrapper">
                         <div className="header-content__inner">
@@ -129,7 +147,7 @@ function Header(props) {
                         </div>
                     </div>
                 </section>
-            }
+            } */}
         </div>
 
     );

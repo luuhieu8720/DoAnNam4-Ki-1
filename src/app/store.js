@@ -8,11 +8,13 @@ import thunk from "redux-thunk";
 import persistStore from 'redux-persist/es/persistStore';
 import Auth from '../components/Auth/reducers/Auth';
 import ListUser from '../components/UserManagement/reducers/ListUser';
+import ListImage from '../components/ImageManagement/reducers/ListImage';
 
 
 const rootReducer = combineReducers({
     Auth: Auth,
-    ListUser: ListUser
+    ListUser: ListUser,
+    ListImage: ListImage
 });
 
 const persistConfig = {

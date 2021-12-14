@@ -5,22 +5,13 @@ import UploadImage from './components/UploadImage/UploadImage';
 import Webcam from './components/Webcam/Webcam';
 import AccountSettings from './components/AccountSetting/AccountSettings';
 import UserManagement from './components/UserManagement/UserManagement';
+import ViolatorManagement from './components/ViolatorManagement/ViolatorManagement';
 
-const ROUTES = [
+export const ROUTES = [
     {
-        path: '/home',
+        path: '',
         exact: true,
         main: <HomePage />
-    },
-    {
-        path: '/webcam',
-        exact: true,
-        main: <Webcam />
-    },
-    {
-        path: '/upload-image',
-        exact: true,
-        main: <UploadImage />
     },
     {
         path: '/signin',
@@ -31,6 +22,14 @@ const ROUTES = [
         path: '/signup',
         exact: true,
         main: <FormRegister />
+    }
+]
+
+export const ROUTES_PRIVATE = [
+    {
+        path: '/upload-image',
+        exact: true,
+        main: <UploadImage />
     },
     {
         path: "/account-setting",
@@ -42,6 +41,14 @@ const ROUTES = [
         exact: true,
         main: <UserManagement />
     },
+    {
+        path: "admin/violator-management",
+        exact: true,
+        main: <ViolatorManagement />
+    },
+    {
+        path: "/webcam",
+        exact: true,
+        main: <Webcam />
+    },
 ]
-
-export default ROUTES;

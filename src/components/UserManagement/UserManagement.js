@@ -14,6 +14,8 @@ function UserManagement(props) {
 
     const [listUser, setListUSer] = useState(ListUser);
 
+    console.log(listUser)
+
     useEffect(() => {
         dispatch(FetchList(token));
     }, [dispatch, token])
@@ -24,23 +26,25 @@ function UserManagement(props) {
 
 
     const ChangeBlockUser = (item) => {
-        const newItem = { ...item, isBlock: !item.isBlock }
+        const newItem = { ...item, isBlocked: !item.isBlocked }
         swal({
             title: "Are you sure?",
-            text: `${!item.isBlock ? 'Once block, If this account is locked, the user of this account cannot log in!' : 'If this account is unlocked, users of this account can login normally!'}`,
+            text: `${!item.isBlocked ? 'Once block, If this account is locked, the user of this account cannot log in!' : 'If this account is unlocked, users of this account can login normally!'}`,
             icon: "warning",
             buttons: true,
             dangerMode: true,
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.put(`http://localhost:4000/me/${item._id}/block`, newItem, {
+                    let url = 'https://pbl6-backend.herokuapp.com/api/users/block/';
+                    if (item.isBlocked) url = 'https://pbl6-backend.herokuapp.com/api/users/unblock/'
+                    axios.put(`${url + item.username}`, newItem, {
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
                     }).then(() => {
                         dispatch(FetchList(token));
-                        swal(`${!item.isBlock ? 'Poof! This account has been locked!' : 'Poof! This account has been unlocked!'}`, {
+                        swal(`${!item.isBlocked ? 'Poof! This account has been locked!' : 'Poof! This account has been unlocked!'}`, {
                             icon: "success",
                         });
                     }).catch(err => console.log(err))
@@ -52,7 +56,6 @@ function UserManagement(props) {
         if (list.length > 0) {
             const newList = list.filter(item => item.role === 1);
             const result = newList.map((item, index) => {
-                console.log(item.birthday)
                 return (
                     <tr key={index} className="hover:bg-gray-50 transition duration-300 ease-in-out">
                         <td className="px-6 py-4 whitespace-nowrap">
@@ -73,8 +76,8 @@ function UserManagement(props) {
                             </span>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm ">
-                            <i className={`fas fa-user-lock cursor-pointer ${item.isBlock ? 'text-gray-700' : 'text-gray-400'}`}
-                                title={`${item.isBlock ? 'Unblock' : 'Block'}`}
+                            <i className={`fas fa-user-lock cursor-pointer ${item.isBlocked ? 'text-gray-700' : 'text-gray-400'}`}
+                                title={`${item.isBlocked ? 'Unblock' : 'Block'}`}
                                 onClick={() => ChangeBlockUser(item)}
                             ></i>
                         </td>
