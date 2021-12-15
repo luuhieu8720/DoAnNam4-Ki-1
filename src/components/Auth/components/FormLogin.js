@@ -8,7 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router';
-import {onLogin} from '../../Auth/reducers/Auth';
+import { onLogin } from '../../Auth/reducers/Auth';
 import { useDispatch } from 'react-redux';
 
 
@@ -44,7 +44,7 @@ function FormLogin(props) {
             navigate('/');
         }).catch(err => {
             if (err.response) {
-                setMess(err.response.data.err);
+                setMess(err.response.data);
                 setErr(true);
             }
         })
@@ -103,15 +103,21 @@ function FormLogin(props) {
 
                     <div className="flex">
                         <div className="flex-grow mx-2 text-center py-1 shadow-sm border-2 border-gray-200 rounded-lg">
-                            <i className="fab fa-facebook text-xl text-gray-500"></i>
+                            <div className="text-2xl text-gray-500 flex items-center justify-center h-full w-full">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </div>
                         </div>
 
                         <div className="flex-grow mx-1 text-center py-1 shadow-sm border-2 border-gray-200 rounded-lg">
-                            <i className="fab fa-twitter text-xl text-gray-500"></i>
+                            <div className="text-2xl text-gray-500 flex items-center justify-center h-full w-full">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </div>
                         </div>
 
                         <div className="flex-grow mx-2 text-center py-1 shadow-sm border-2 border-gray-200 rounded-lg">
-                            <i className="fab fa-github text-xl text-gray-500"></i>
+                            <div className="text-2xl text-gray-500 flex items-center justify-center h-full w-full">
+                                <ion-icon name="logo-github"></ion-icon>
+                            </div>
                         </div>
                     </div>
 

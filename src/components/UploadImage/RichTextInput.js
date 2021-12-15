@@ -95,11 +95,11 @@ function RichTextInput({ onSubmit, ...rest }) {
 					onChange={onFilesAdded}
 					className="mt-2"
 				/>
-				<div className="fixed w-full bottom-32 flex items-center justify-between border-2 border-gray-500 mx-auto" 
-				style={{ 
-					maxWidth: "500px", 
-					marginLeft: "-11px" 
-				}}>
+				<div className="fixed w-full bottom-32 flex items-center justify-between border-2 border-gray-500 mx-auto"
+					style={{
+						maxWidth: "500px",
+						marginLeft: "-11px"
+					}}>
 					<div>
 						<Button
 							icon={showCamera ? <Close /> : <Camera />}

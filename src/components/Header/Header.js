@@ -33,7 +33,7 @@ function Header(props) {
 
     return (
         <div className="header" >
-            <div className={`header__container ${changeClass ?"bg-white shadow" : ""} ${location !== "/" && "bg-white shadow"}`}>
+            <div className={`header__container ${changeClass ? "bg-white shadow" : ""} ${location !== "/" && "bg-white shadow"}`}>
                 <nav className="navigation">
                     <Link to="/" className="logo">
                         <img
@@ -72,46 +72,54 @@ function Header(props) {
                                         </div>
                                     </div>
 
-                                    {dropdownUser && <div className="z-10 origin-top-right absolute right-0 mt-12 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                    {dropdownUser && <div className="z-10 origin-top-right absolute right-0 mt-12 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                                         <div className="divide-y divide-fuchsia-300" role="none">
                                             <Link
                                                 to="/account-setting"
-                                                className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out text-base"
+                                                className="text-gray-700 flex items-center block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out text-base"
                                                 onClick={() => setDropdownUser(false)}
                                             >
-                                                <i className="fas fa-user-cog w-1/5"></i>
+                                                <div className="w-1/5 flex item-center justify-center text-xl">
+                                                    <ion-icon name="settings"></ion-icon>
+                                                </div>
                                                 <span>Account setting</span>
                                             </Link>
                                             {
                                                 role !== 1 &&
                                                 <Link
                                                     to="/admin/user-management"
-                                                    className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 text-base ease-in-out"
+                                                    className="text-gray-700 flex items-center block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 text-base ease-in-out"
                                                     onClick={() => setDropdownUser(false)}
                                                 >
-                                                    <i className="fas fa-users-cog w-1/5"></i>
+                                                    <div className="w-1/5 flex item-center justify-center text-xl">
+                                                        <ion-icon name="people"></ion-icon>
+                                                    </div>
                                                     <span>User management</span>
                                                 </Link>
                                             }
-                                             {
+                                            {
                                                 role !== 1 &&
                                                 <Link
                                                     to="/admin/violator-management"
-                                                    className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 text-base ease-in-out"
+                                                    className="flex item-center text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 text-base ease-in-out"
                                                     onClick={() => setDropdownUser(false)}
                                                 >
-                                                    <i className="fas fa-images w-1/5"></i>
+                                                    <div className="flex item-center justify-center text-xl w-1/5">
+                                                        <ion-icon name="image"></ion-icon>
+                                                    </div>
                                                     <span>Violator Management</span>
                                                 </Link>
                                             }
                                             <button
-                                                className="text-gray-700 w-full rounded-b-md text-left px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out text-base"
+                                                className="text-gray-700 flex item-center w-full rounded-b-md text-left px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out text-base"
                                                 onClick={() => {
                                                     dispatch(onLogout());
                                                     setDropdownUser(false);
                                                 }}
                                             >
-                                                <i class="fas fa-sign-out-alt w-1/5"></i>
+                                                <div className="flex item-center justify-center text-xl w-1/5">
+                                                    <ion-icon name="log-out"></ion-icon>
+                                                </div>
                                                 <span>Sign out</span>
                                             </button>
                                         </div>

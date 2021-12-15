@@ -40,11 +40,12 @@ function ViolatorManagement(props) {
                             <img src={`data:image/jpeg;base64,${item.base64String}`} alt="" />
                         </div>
                         <h3 className="card-name text-center">
-                            {moment(item.predictedTime).format('YYYY-MM-DD HH:mm:ss') }
+                            {moment(item.predictedTime).format('YYYY-MM-DD HH:mm:ss')}
                         </h3>
                     </div>
                 )
             })
+            console.log(result)
             return result;
         }
 
@@ -54,9 +55,6 @@ function ViolatorManagement(props) {
 
     const HandleChangePlus = (number) => {
 
-        // console.log(number)
-        // console.log(count)
-        // console.log(change)
         if (count !== 0) {
             setCount(count - 1);
             setChange(change + 20);
@@ -77,10 +75,14 @@ function ViolatorManagement(props) {
             <div className="violator-management-container"></div>
             <div className="modal">
 
-                <i className="fas fa-chevron-left fixed cursor-pointer text-white text-2xl left-6"
-                    onClick={() => HandleChangePlus(1050)}></i>
-                <i className="fas fa-chevron-right fixed cursor-pointer text-white text-2xl right-6"
-                    onClick={() => HandleChangeMinus(-1050)}></i>
+                <div className="fixed cursor-pointer text-white text-4xl left-6"
+                    onClick={() => HandleChangePlus(1050)}>
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </div>
+                <div className="fixed cursor-pointer text-white text-4xl right-6"
+                    onClick={() => HandleChangeMinus(-1050)}>
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                </div>
                 <div className="hotSearch mt-4 relative">
                     <div className="hotSearch__ flex delay-100 px-6 gap-8" style={{ marginLeft: `${change}px` }}>
                         {convertList(data)}

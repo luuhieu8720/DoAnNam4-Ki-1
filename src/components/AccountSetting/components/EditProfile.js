@@ -6,6 +6,8 @@ import '../../Auth/components/Login-Register.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import swal from 'sweetalert'
+import { changeInfo } from '../../Auth/reducers/Auth';
+import moment from 'moment';
 
 function EditProfile(props) {
 
@@ -32,7 +34,6 @@ function EditProfile(props) {
                     'Authorization': `Bearer ${token}`
                 }
             }).then(res => {
-                console.log(res.data)
                 setValue("firstName", res.data.firstName);
                 setValue("lastName", res.data.lastName);
                 setValue("phone", res.data.phone);
@@ -41,25 +42,21 @@ function EditProfile(props) {
         }
 
         fetchInfo();
-    }, [token, setValue])
+    }, [token, setValue, dispatch])
 
     const submitFormProfile = (data) => {
-        console.log(data)
-        // axios.post(`http://localhost:4000/me/${_id}/edit`, data, {
-        //     headers: {
-        //         'Authorization': `Bearer ${token}`
-        //     }
-        // })
-        //     .then(res => {
-        //         swal("Successfully changed information!"," Click ok to go back!", "success");
-        //         const info = jwt_decode(res.data.accessToken).data;
-        //         console.log(info)
-        //         dispatch(onLogin({
-        //             info: info,
-        //             accessToken: res.data.accessToken
-        //         }))
-        //     })
-        //     .catch(err => console.log(err))
+        const newData = {...data, birthday: moment(data.birthday).format('YYYY-MM-DD')}
+        console.log(newData)
+        axios.put(`https://pbl6-backend.herokuapp.com/api/users/update`, newData, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(res => {
+                swal("Successfully changed information!", " Click ok to go back!", "success");
+                dispatch(changeInfo(newData));
+            })
+            .catch(err => console.log(err))
     }
 
 
