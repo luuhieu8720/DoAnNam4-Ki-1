@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2b25c961.chunk.css",
+    "main.js": "/static/js/main.8b92cfa0.chunk.js",
+    "main.js.map": "/static/js/main.8b92cfa0.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.fcb3df19.js",
+    "runtime-main.js.map": "/static/js/runtime-main.fcb3df19.js.map",
+    "static/css/2.11724617.chunk.css": "/static/css/2.11724617.chunk.css",
+    "static/js/2.4ffa4f3d.chunk.js": "/static/js/2.4ffa4f3d.chunk.js",
+    "static/js/2.4ffa4f3d.chunk.js.map": "/static/js/2.4ffa4f3d.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.11724617.chunk.css.map": "/static/css/2.11724617.chunk.css.map",
+    "static/css/main.2b25c961.chunk.css.map": "/static/css/main.2b25c961.chunk.css.map",
+    "static/js/2.4ffa4f3d.chunk.js.LICENSE.txt": "/static/js/2.4ffa4f3d.chunk.js.LICENSE.txt",
+    "static/media/Hieu.d5b35b26.jpg": "/static/media/Hieu.d5b35b26.jpg",
+    "static/media/Khoi.1c532dae.jpg": "/static/media/Khoi.1c532dae.jpg",
+    "static/media/Loan.ca29adb3.png": "/static/media/Loan.ca29adb3.png",
+    "static/media/arrow.6e8a628b.svg": "/static/media/arrow.6e8a628b.svg",
+    "static/media/fmd.19f1954f.png": "/static/media/fmd.19f1954f.png",
+    "static/media/production ID_4206497.efc8f841.mp4": "/static/media/production ID_4206497.efc8f841.mp4"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fcb3df19.js",
+    "static/css/2.11724617.chunk.css",
+    "static/js/2.4ffa4f3d.chunk.js",
+    "static/css/main.2b25c961.chunk.css",
+    "static/js/main.8b92cfa0.chunk.js"
+  ]
+}
