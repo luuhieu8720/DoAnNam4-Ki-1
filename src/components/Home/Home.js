@@ -61,7 +61,7 @@ function Home(props) {
                     <div className="" onClick={() => setOpenForm(!openForm)}>
                         <div className="message-container mr-4">
                             <span className="online"></span>
-                            <p>Information of our team</p>
+                            <p>Team information</p>
                         </div>
                     </div>
 
